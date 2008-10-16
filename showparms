@@ -1,0 +1,6 @@
+#!/bin/zsh
+for p in ${@:-*}; do
+	bn=$(basename ${p})
+	content=$(sed -e 's/"/\\"/g' ${p})
+	printf "%23s=\"%s\"\n" ${bn} "${content}"
+done
